@@ -1,5 +1,7 @@
 package com.flaborfit.dilip.flaborfit;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
@@ -33,6 +35,11 @@ public class DetailActivity extends AppCompatActivity {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 imageMain.setImageDrawable(getResources().getDrawable(R.drawable.lotus,getApplicationContext().getTheme()));
             }
+        }
+
+        SharedPreferences prefs = getSharedPreferences("SESSION", Context.MODE_PRIVATE);
+        if (prefs.getBoolean("nightmode", false)) {
+            linearBackground.setBackgroundColor(Color.parseColor("#A9A9A9"));
         }
 
     }
